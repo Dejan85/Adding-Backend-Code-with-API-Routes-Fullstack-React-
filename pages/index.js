@@ -1,23 +1,9 @@
-import { getFeaturedEvents } from '../helpers/api-util';
-import EventList from '../components/events/event-list';
+import styles from "../styles/Home.module.css";
 
-function HomePage(props) {
+export default function Home() {
   return (
-    <div>
-      <EventList items={props.events} />
+    <div className={styles.container}>
+      <h1>The home page</h1>
     </div>
   );
 }
-
-export async function getStaticProps() {
-  const featuredEvents = await getFeaturedEvents();
-
-  return {
-    props: {
-      events: featuredEvents
-    },
-    revalidate: 1800
-  }
-}
-
-export default HomePage;
